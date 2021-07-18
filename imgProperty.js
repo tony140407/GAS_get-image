@@ -1,5 +1,5 @@
 const cwbStationID = ['46692', '46699', '46734', '46750', '46810', '46780']; // 可新增/移除測站
-export const imgProperty = {
+const imgProperty = {
   雷達: {
     category: {
       '雷達-台灣周邊': {
