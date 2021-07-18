@@ -9,28 +9,28 @@ CreateFolders.prototype.createFolder = function (
   newFolderName,
   parentFolderId
 ) {
-  var myFolderID = quicklyCreate(parentFolderId, newFolderName);
+  const myFolderID = quicklyCreate(parentFolderId, newFolderName);
   return myFolderID;
 
   function quicklyCreate(folderId, folderName) {
-    var parentFolder = DriveApp.getFolderById(folderId);
-    var subFolders = parentFolder.getFolders();
-    var doesntExists = true;
-    var newFolder = '';
+    const parentFolder = DriveApp.getFolderById(folderId);
+    const subFolders = parentFolder.getFolders();
+    let doNotExists = true;
+    let newFolder = '';
 
     // Check if folder already exists.
     while (subFolders.hasNext()) {
-      var folder = subFolders.next();
+      const folder = subFolders.next();
 
       //If the name exists return the id of the folder
       if (folder.getName() === folderName) {
-        doesntExists = false;
+        doNotExists = false;
         newFolder = folder;
         return newFolder.getId();
       }
     }
     //If the name doesn't exists, then create a new folder
-    if (doesntExists == true) {
+    if (doNotExists == true) {
       //If the file doesn't exists
       newFolder = parentFolder.createFolder(folderName);
       return newFolder.getId();
