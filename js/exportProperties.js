@@ -116,7 +116,7 @@ const imgProperty = {
     },
   },
   探空: {
-    ids: cwbStationID,
+    ids: ['46692', '46699', '46734', '46750', '46810', '46780'],
     times: ['00', '12'],
     category: {
       探空: {
@@ -128,13 +128,15 @@ const imgProperty = {
     timeGap: 60 * 24,
     endUrl: '.gif',
     combineRule(time, startUrl) {
+      let urls = [];
       this.ids.forEach((eachID) => {
         this.times.forEach((eachTime) => {
           const totalTime = `${time}${eachTime}`;
           const totalUrl = `${startUrl}${totalTime}_${eachID}${this.endUrl}`;
-          return totalUrl;
+          urls.push(totalUrl);
         });
       });
+      return urls;
     },
   },
   JMA天氣圖: {
@@ -150,13 +152,15 @@ const imgProperty = {
     endUrl: '.png',
 
     combineRule(time, startUrl) {
+      let urls = [];
       this.ids.forEach((eachID) => {
         this.times.forEach((eachTime) => {
           const totalTime = `${time}${eachTime}`;
           const totalUrl = `${startUrl}${eachID}${totalTime}${this.endUrl}`;
-          return totalUrl;
+          urls.push(totalUrl);
         });
       });
+      return urls;
     },
   },
 };

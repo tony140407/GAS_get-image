@@ -70,7 +70,7 @@ DownloadImageToFolder.prototype.downloadEachImg = function () {
         eachTime,
         startUrl
       );
-      if (totalUrl.isArray()) {
+      if (Array.isArray(totalUrl)) {
         totalUrl.forEach((eachUrl) => {
           this.getImg(eachUrl, folderID);
         });
