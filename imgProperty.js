@@ -13,9 +13,9 @@ const imgProperty = {
     modifyMinToTensDigit: true,
     timeGap: 10,
     endUrl: '.png',
-    combineRule(fn, time, startUrl) {
+    combineRule(time, startUrl) {
       const totalUrl = `${startUrl}${time}${this.endUrl}`;
-      fn(totalUrl);
+      return totalUrl;
     },
   },
 
@@ -53,9 +53,9 @@ const imgProperty = {
     modifyMinToTensDigit: true,
     timeGap: 10,
     endUrl: '.jpg',
-    combineRule(fn, time, startUrl) {
+    combineRule(time, startUrl) {
       const totalUrl = `${startUrl}${time}${this.endUrl}`;
-      fn(totalUrl);
+      return totalUrl;
     },
   },
   氣溫: {
@@ -67,9 +67,9 @@ const imgProperty = {
     timeFormat: 'yyyy-MM-dd_HH00',
     timeGap: 60,
     endUrl: '.GTP8.jpg',
-    combineRule(fn, time, startUrl) {
+    combineRule(time, startUrl) {
       const totalUrl = `${startUrl}${time}${this.endUrl}`;
-      fn(totalUrl);
+      return totalUrl;
     },
   },
   雨量: {
@@ -81,9 +81,9 @@ const imgProperty = {
     timeFormat: 'yyyy-MM-dd_HH00',
     timeGap: 60,
     endUrl: '.QZT8.jpg',
-    combineRule(fn, time, startUrl) {
+    combineRule(time, startUrl) {
       const totalUrl = `${startUrl}${time}${this.endUrl}`;
-      fn(totalUrl);
+      return totalUrl;
     },
   },
   日累積雨量: {
@@ -95,9 +95,9 @@ const imgProperty = {
     timeFormat: 'yyyy-MM-dd_0000',
     timeGap: 60 * 24,
     endUrl: '.QZJ8.jpg',
-    combineRule(fn, time, startUrl) {
+    combineRule(time, startUrl) {
       const totalUrl = `${startUrl}${time}${this.endUrl}`;
-      fn(totalUrl);
+      return totalUrl;
     },
   },
   NCDR風場: {
@@ -109,10 +109,10 @@ const imgProperty = {
     timeFormat: 'yyyyMMddHHmm',
     timeGap: 60,
     endUrl: '.png',
-    combineRule(fn, time, startUrl) {
+    combineRule(time, startUrl) {
       const month = time.slice(0, 6);
       const totalUrl = `${startUrl}${month}/windmap_${time}${this.endUrl}`;
-      fn(totalUrl);
+      return totalUrl;
     },
   },
   探空: {
@@ -127,12 +127,12 @@ const imgProperty = {
     timeFormat: 'yyyyMMdd',
     timeGap: 60 * 24,
     endUrl: '.gif',
-    combineRule(fn, time, startUrl) {
+    combineRule(time, startUrl) {
       this.ids.forEach((eachID) => {
         this.times.forEach((eachTime) => {
           const totalTime = `${time}${eachTime}`;
-          const url = `${startUrl}${totalTime}_${eachID}${this.endUrl}`;
-          return fn(url);
+          const totalUrl = `${startUrl}${totalTime}_${eachID}${this.endUrl}`;
+          return totalUrl;
         });
       });
     },
@@ -149,12 +149,12 @@ const imgProperty = {
     timeGap: 60 * 24,
     endUrl: '.png',
 
-    combineRule(fn, time, startUrl) {
+    combineRule(time, startUrl) {
       this.ids.forEach((eachID) => {
         this.times.forEach((eachTime) => {
           const totalTime = `${time}${eachTime}`;
-          const url = `${startUrl}${eachID}${totalTime}${this.endUrl}`;
-          fn(url);
+          const totalUrl = `${startUrl}${eachID}${totalTime}${this.endUrl}`;
+          return totalUrl;
         });
       });
     },
