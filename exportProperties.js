@@ -106,7 +106,7 @@ const imgProperty = {
         startUrl: 'https://watch.ncdr.nat.gov.tw/00_Wxmap/5A7_CWB_WINDMAP/', //https://watch.ncdr.nat.gov.tw/00_Wxmap/5A7_CWB_WINDMAP/202107/windmap_202107151600.png
       },
     },
-    timeFormat: 'yyyyMMddHHmm',
+    timeFormat: 'yyyyMMddHH00',
     timeGap: 60,
     endUrl: '.png',
     combineRule(time, startUrl) {
@@ -124,7 +124,7 @@ const imgProperty = {
           'https://npd.cwb.gov.tw/NPD/irisme_data/Weather/SkewT/SKW___000_', //https://npd.cwb.gov.tw/NPD/irisme_data/Weather/SkewT/SKW___000_21071500_46692.gif
       },
     },
-    timeFormat: 'yyyyMMdd',
+    timeFormat: 'yyMMdd',
     timeGap: 60 * 24,
     endUrl: '.gif',
     combineRule(time, startUrl) {
