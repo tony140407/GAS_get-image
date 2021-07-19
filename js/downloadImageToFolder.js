@@ -70,7 +70,13 @@ DownloadImageToFolder.prototype.downloadEachImg = function () {
         eachTime,
         startUrl
       );
-      this.getImg(totalUrl, folderID);
+      if (totalUrl.isArray()) {
+        totalUrl.forEach((eachUrl) => {
+          this.getImg(eachUrl, folderID);
+        });
+      } else {
+        this.getImg(totalUrl, folderID);
+      }
     });
   });
 };
