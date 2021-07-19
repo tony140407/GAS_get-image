@@ -1,9 +1,16 @@
-function DownloadImageToFolder(imgProperty, timeArray, timeStampArray) {
+function DownloadImageToFolder(
+  imgProperty,
+  imgParams,
+  timeArray,
+  timeStampArray
+) {
   this.imgProperty = imgProperty;
+  this.imgParams = imgParams;
   this.timeArray = timeArray;
   this.timeStampArray = timeStampArray;
   this.getImg = function (url, id) {
     try {
+      Logger.log(`正在下載 ${url}`);
       const response = UrlFetchApp.fetch(url).getBlob();
       const dir = DriveApp.getFolderById(id);
       dir.createFile(response);
@@ -28,7 +35,7 @@ DownloadImageToFolder.prototype.getFolderID = function (folderDay, category) {
     for (i in data) {
       if (data[i][0] != '') {
         dataExportId[data[i][0]] = {};
-        this.specialSelectArray.forEach((params, index) => {
+        this.imgParams.forEach((params, index) => {
           dataExportId[data[i][0]][params] = data[i][index + 1];
         });
       }
