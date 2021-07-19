@@ -1,24 +1,30 @@
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image/exportProperties.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.0/js/exportProperties.js'
   ).getContentText()
 );
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image/createFolder.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.0/js/createFolder.js'
   ).getContentText()
 );
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image/timeArray.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.0/js/timeArray.js'
   ).getContentText()
 );
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image/downloadImageToFolder.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.0/js/downloadImageToFolder.js'
+  ).getContentText()
+);
+eval(
+  UrlFetchApp.fetch(
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.0/js/getImg.js'
   ).getContentText()
 );
 
+// ---------------------------
 const folderID = ''; // 最外面資料夾ID 如: 2021年天氣學
 const excelID = '';
 
@@ -41,10 +47,10 @@ const imgParams = [
   'JMA天氣圖',
   'NCDR風場',
 ];
-
 const dayArray = [20210719, 20210720]; // 你要創的日期 2021年天氣學 > 20210324 ...
 
 function runThisCodeToCreateFolders() {
+  Logger.log('建立資料夾中~');
   const createFolders = new CreateFolders(
     excelID,
     folderID,
