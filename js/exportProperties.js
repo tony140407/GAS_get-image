@@ -164,7 +164,26 @@ const imgProperty = {
     },
   },
 };
+const imgParams = [
+  '雷達-台灣周邊',
+  '雷達-全範圍',
+  '衛星雲圖-可見光_台灣',
+  '衛星雲圖-可見光_亞洲',
+  '衛星雲圖-色調強化_台灣',
+  '衛星雲圖-色調強化_亞洲',
+  '衛星雲圖-真實色_台灣',
+  '衛星雲圖-真實色_亞洲',
+  '氣溫',
+  '小時累積雨量',
+  '日累積雨量',
+  '探空',
+  'JMA天氣圖',
+  'NCDR風場',
+];
 
 function exportProperties() {
   return imgProperty;
+}
+function exportImgParams() {
+  return imgParams;
 }
