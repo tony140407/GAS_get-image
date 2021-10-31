@@ -6,22 +6,22 @@ eval(
 );
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.1/js/createFolder.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.2/js/createFolder.js'
   ).getContentText()
 );
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.1/js/timeArray.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.2/js/timeArray.js'
   ).getContentText()
 );
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.1/js/downloadImageToFolder.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.2/js/downloadImageToFolder.js'
   ).getContentText()
 );
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.1/js/autocomplete.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.2/js/autocomplete.js'
   ).getContentText()
 );
 
