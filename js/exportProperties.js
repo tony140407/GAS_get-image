@@ -121,7 +121,7 @@ const imgProperty = {
     category: {
       探空: {
         startUrl:
-          'https://npd.cwb.gov.tw/NPD/irisme_data/Weather/SkewT/SKW___000_', //https://npd.cwb.gov.tw/NPD/irisme_data/Weather/SkewT/SKW___000_21071500_46692.gif
+          'https://npd.cwb.gov.tw/NPD/irisme_data/Weather/SkEWT/SKW___000_', //https://npd.cwb.gov.tw/NPD/irisme_data/Weather/SkewT/SKW___000_21071500_46692.gif
       },
     },
     timeFormat: 'yyMMdd',

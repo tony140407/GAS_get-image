@@ -1,7 +1,7 @@
 // CDN 載入 Github 程式碼
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.1/js/exportProperties.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.2/js/exportProperties.js'
   ).getContentText()
 );
 eval(
