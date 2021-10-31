@@ -42,8 +42,8 @@ DownloadImageToFolder.prototype.getFolderID = function (folderDay, category) {
     }
     return dataExportId;
   };
-  const jsonForfolderId = getExcelData();
-  return jsonForfolderId[folderDay][category];
+  const jsonForFolderId = getExcelData();
+  return jsonForFolderId[folderDay][category];
 };
 DownloadImageToFolder.prototype.setNeedToDownloadProperty = function (
   property,
@@ -54,7 +54,7 @@ DownloadImageToFolder.prototype.setNeedToDownloadProperty = function (
     ? specialSelectArray
     : Object.keys(this.imgProperty[this.property].category);
 };
-DownloadImageToFolder.prototype.downloadEachImg = function () {
+DownloadImageToFolder.prototype.downloadEachImgToFolder = function () {
   this.specialSelectArray.forEach((eachCategoryObj) => {
     this.timeArray.forEach((eachTime, index) => {
       const folderDay = Utilities.formatDate(
@@ -70,6 +70,8 @@ DownloadImageToFolder.prototype.downloadEachImg = function () {
         eachTime,
         startUrl
       );
+
+      // totalUrl 支援 Array/String
       if (Array.isArray(totalUrl)) {
         totalUrl.forEach((eachUrl) => {
           this.getImg(eachUrl, folderID);

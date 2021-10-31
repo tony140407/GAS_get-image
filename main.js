@@ -1,26 +1,27 @@
+// CDN 載入 Github 程式碼
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1/js/exportProperties.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.1/js/exportProperties.js'
   ).getContentText()
 );
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.0/js/createFolder.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.1/js/createFolder.js'
   ).getContentText()
 );
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.0/js/timeArray.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.1/js/timeArray.js'
   ).getContentText()
 );
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.0/js/downloadImageToFolder.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.1/js/downloadImageToFolder.js'
   ).getContentText()
 );
 eval(
   UrlFetchApp.fetch(
-    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.0/js/getImg.js'
+    'https://cdn.jsdelivr.net/gh/tony140407/GAS_get-image@1.1.1/js/autocomplete.js'
   ).getContentText()
 );
 
@@ -28,11 +29,11 @@ eval(
 const folderID = ''; // 最外面資料夾ID 如: 2021年天氣學
 const excelID = '';
 
-const beforeTime = 6;
-const during = 6;
+const beforeTime = 6; // 單位: 小時
+const during = 0.9; // 計時器可以設每小時執行
 const imgProperties = exportProperties();
 const imgParams = exportImgParams();
-const dayArray = [20210719, 20210720]; // 你要創的日期 2021年天氣學 > 20210324 ...
+const dayArray = [20211029, 20211031]; // 你要創的日期 2021年天氣學 > 20210324 ...
 
 function runThisCodeToCreateFolders() {
   Logger.log('建立資料夾中~');
@@ -45,8 +46,8 @@ function runThisCodeToCreateFolders() {
   createFolders.init();
 }
 
-const getImg = new GetImg();
-getImg.setParameter(
+const autocomplete = new Autocomplete();
+autocomplete.setParameter(
   folderID,
   excelID,
   beforeTime,
@@ -56,34 +57,41 @@ getImg.setParameter(
 );
 
 function part1() {
-  getImg.getImgToFolder('雷達');
+  autocomplete.getImgToFolder('雷達');
 }
 function part2() {
-  getImg.getImgToFolder('衛星雲圖');
+  autocomplete.getImgToFolder('衛星雲圖');
 }
 function part3() {
-  getImg.getImgToFolder('氣溫');
-  getImg.getImgToFolder('雨量');
-  getImg.getImgToFolder('NCDR風場');
+  autocomplete.getImgToFolder('氣溫');
+  autocomplete.getImgToFolder('雨量');
+  autocomplete.getImgToFolder('NCDR風場');
 }
 function part4() {
-  getImg.getImgToFolder('日累積雨量');
-  getImg.getImgToFolder('探空');
-  getImg.getImgToFolder('JMA天氣圖');
+  autocomplete.getImgToFolder('日累積雨量');
+  autocomplete.getImgToFolder('探空');
+  autocomplete.getImgToFolder('JMA天氣圖');
 }
 
+
+// 以下為範例，可執行部分細項
+// ----------------------------------------
+// 
 // function part2_1() {
-//   getImg.getImgToFolder('衛星雲圖', [
+//   autocomplete.getImgToFolder('衛星雲圖', [
 //     '衛星雲圖-可見光_台灣',
 //     '衛星雲圖-可見光_亞洲',
 //   ]);
 // }
 // function part2_2() {
-//   getImg.getImgToFolder('衛星雲圖', [
+//   autocomplete.getImgToFolder('衛星雲圖', [
 //     '衛星雲圖-色調強化_台灣',
 //     '衛星雲圖-色調強化_亞洲',
 //   ]);
 // }
 // function part2_3() {
-//   getImgToFolder('衛星雲圖', ['衛星雲圖-真實色_台灣', '衛星雲圖-真實色_亞洲']);
+//   autocomplete.getImgToFolder('衛星雲圖', [
+//     '衛星雲圖-真實色_台灣',
+//     '衛星雲圖-真實色_亞洲',
+//  ]);
 // }

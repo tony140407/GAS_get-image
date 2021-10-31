@@ -1,4 +1,4 @@
-function GetImg() {
+function Autocomplete() {
   this.setParameter = function (
     folderID,
     excelID,
@@ -16,11 +16,11 @@ function GetImg() {
   };
 }
 
-GetImg.prototype.getImgToFolder = function (wantToCatch, specialSelectArray) {
+Autocomplete.prototype.getImgToFolder = function (wantToCatch, specialSelectArray) {
   Logger.log(
     `執行中! 類別:${wantToCatch}，你可以暫時去做其他事了，不要把瀏覽器關掉就好~`
   );
-  const time = new TimeArrayFcatory();
+  const time = new TimeArrayFactory();
   const gapTime = time.returnTimeGap(this.imgProperties, wantToCatch);
   const timeFormat = this.imgProperties[wantToCatch].timeFormat;
   const needChangeMin = this.imgProperties[wantToCatch].modifyMinToTensDigit;
@@ -35,6 +35,6 @@ GetImg.prototype.getImgToFolder = function (wantToCatch, specialSelectArray) {
   );
   ImageToFolder.setExcelData(this.excelID);
   ImageToFolder.setNeedToDownloadProperty(wantToCatch, specialSelectArray); // 可家陣列取得特定值
-  ImageToFolder.downloadEachImg();
+  ImageToFolder.downloadEachImgToFolder();
   Logger.log('執行完畢~');
 };

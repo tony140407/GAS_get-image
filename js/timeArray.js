@@ -1,15 +1,15 @@
-function TimeArrayFcatory() {
+function TimeArrayFactory() {
   this.startTime = null; // new Date() 轉時間  // Utilities.formatDate(new Date(this.startTime), "GMT+8", "yyyy-MM-dd HH:mm")
   this.endTime = null;
   this.timeArray = []; // "yyyy-MM-dd HH:mm"
 }
-TimeArrayFcatory.prototype.returnTimeGap = function (imgProperty, category) {
+TimeArrayFactory.prototype.returnTimeGap = function (imgProperty, category) {
   if (imgProperty) {
     this.imgProperty = imgProperty;
   }
   return this, imgProperty[category].timeGap;
 };
-TimeArrayFcatory.prototype.getTimeArray = function (
+TimeArrayFactory.prototype.getTimeArray = function (
   beforeHour,
   duration,
   intervalMin
@@ -40,7 +40,7 @@ TimeArrayFcatory.prototype.getTimeArray = function (
   };
 };
 
-TimeArrayFcatory.prototype.setTimeFormat = function (
+TimeArrayFactory.prototype.setTimeFormat = function (
   format,
   modifyMinToTensDigit,
   timeZone = 'GMT+8'
